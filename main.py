@@ -33,4 +33,13 @@ def game():
             print(f"{user} vous avez perdu")
             allumette = ""
 
+
+def main() -> None :
+   "fonction principale si on éxécute le code"
+   game()
+   print("Merci d'avoir jouer")
+
+
+if __name__ == '__main__':
+    main()
     
