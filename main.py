@@ -23,16 +23,19 @@ def game():
         liste_user.append(input_name_user())
     allumette = " "*21
     user = liste_user[0]
-    while len(allumette) > 1:
+    i = 0
+    winner = None
+    while len(allumette) > 0:
         print(f"{user} , c'est à vous de jouer")
         print(f"il reste {len(allumette)} allumettes")
         number_allumette = input_number_user()
-        if len(allumette) > number_user:
+        if len(allumette) >= number_allumette:
             allumette = allumette[number_allumette:]
-        else:
-            print(f"{user} vous avez perdu")
-            allumette = ""
-
+            i +=1
+        user = liste_user[i % 2]
+    winner = liste_user[i  % 2]
+    print(f"{winner} est le grand vainqueur.")
+    
 
 def main() -> None :
    "fonction principale si on éxécute le code"
@@ -42,4 +45,3 @@ def main() -> None :
 
 if __name__ == '__main__':
     main()
-    
