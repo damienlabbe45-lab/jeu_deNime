@@ -39,18 +39,26 @@ def choice_computer(number_matches: int) -> int:
     return number
 
 
-def game():
-    """fonction permettant de créé le jeu"""
+def preparation() -> None:
+    game_choice = 
     number_user = input_number_user()
     liste_user = []
     for _ in range(number_user):
         liste_user.append(input_name_user())
-    matches = " "*21
     if number_user == 1:
         liste_user.append("\n")
     user = choice(liste_user)
     i = liste_user.index(user)
     winner = None
+    if game_choice == "nime":
+       game_nime(liste_user, i , winner, user)
+    else:
+
+
+
+def game_nime(liste_user : list[str], i: int,  winner : None|str ,user: str) -> None:
+    """fonction permettant de créé le jeu"""
+    matches = " "*21
     while len(matches) > 0:
         if user != "\n":
             print(f"{user} , c'est à vous de jouer")
@@ -73,7 +81,7 @@ def game():
 
 def main() -> None :
    "fonction principale si on éxécute le code"
-   game()
+   preparation()
    print("Merci d'avoir jouer")
 
 
