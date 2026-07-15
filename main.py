@@ -35,7 +35,7 @@ def choice_computer(number_matches: int) -> int:
     if number_matches % 5 != 1:
         number = 5 - number_matches % 5
     else:
-        number = choice(list(range(1, min(5, number_matches))))
+        number = choice(list(range(1, min(5, number_matches + 1))))
     return number
 
 
@@ -49,7 +49,7 @@ def game():
     if number_user == 1:
         liste_user.append("\n")
     user = choice(liste_user)
-    i = 0
+    i = liste_user.index(user)
     winner = None
     while len(matches) > 0:
         if user != "\n":
