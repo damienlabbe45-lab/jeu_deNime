@@ -6,7 +6,7 @@ def input_name_user() -> str:
     return input("entrez votre nom")
 
 
-def input_number_user() -> int:
+def input_number_matches_user() -> int:
     """demander à l'utilisateur de dire combien d'allumette il enlève"""
     number = None
     while number is None:
@@ -24,16 +24,16 @@ def game():
     liste_user = []
     for _ in range(number_user):
         liste_user.append(input_name_user())
-    allumette = " "*21
+    matches = " "*21
     user = choice(liste_user)
     i = 0
     winner = None
-    while len(allumette) > 0:
+    while len(matches) > 0:
         print(f"{user} , c'est à vous de jouer")
-        print(f"il reste {len(allumette)} allumettes")
-        number_allumette = input_number_user()
-        if len(allumette) >= number_allumette:
-            allumette = allumette[number_allumette:]
+        print(f"il reste {len(matches)} allumettes")
+        number_matches = input_number_matches_user()
+        if len(matches) >= number_matches:
+            allumette = allumette[number_matches:]
             i +=1
         user = liste_user[i % 2]
     winner = liste_user[i  % 2]
