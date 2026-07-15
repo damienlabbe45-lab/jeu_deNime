@@ -50,7 +50,7 @@ def choice_game_user() -> str:
     return game
 
 
-def preparation() -> None:
+def game_setup() -> None:
     """prépare les variables ainsi que les configurations si c'est pour jouer contre l'ordi ou pas"""
     game_choice = choice_game_user()
     number_user = input_number_user()
@@ -93,7 +93,7 @@ def game_nime(liste_user : list[str], i: int,  winner : None|str ,user: str) -> 
 
 def main() -> None :
    "fonction principale si on éxécute le code"
-   preparation()
+   game_setup()
    print("Merci d'avoir jouer")
 
 
