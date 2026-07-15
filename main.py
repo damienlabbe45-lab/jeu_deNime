@@ -39,8 +39,19 @@ def choice_computer(number_matches: int) -> int:
     return number
 
 
+def choice_game_user() -> str:
+    """permet de savoir quel jeu ce sera"""
+    game = None
+    while game is None:
+        game = input("Veuillez indiquer le jeu (nime ou Marienbad\n")
+        if game != "nime" or game !="Marienbad" :
+            game = None
+            
+    return game
+
+
 def preparation() -> None:
-    game_choice = 
+    game_choice = choice_game_user()
     number_user = input_number_user()
     liste_user = []
     for _ in range(number_user):
