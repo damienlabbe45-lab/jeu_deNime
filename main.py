@@ -18,9 +18,20 @@ def input_number_matches_user() -> int:
     return number
 
 
+def input_number_user() -> int:
+    """permet de savoir combien de joueurs il aura"""
+    number = None
+    while number is None:
+        number = input("Veuillez indiquer le nombre de joueurs (1 ou 2)\n")
+        if number == "1" or number == "2":
+            number =int(number)
+        else:
+            number = None
+    return number
+
 def game():
     """fonction permettant de créé le jeu"""
-    number_user = 2
+    number_user = input_number_user()
     liste_user = []
     for _ in range(number_user):
         liste_user.append(input_name_user())
