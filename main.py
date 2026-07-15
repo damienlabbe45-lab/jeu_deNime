@@ -61,31 +61,52 @@ def game_setup() -> None:
         liste_user.append("\n")
     user = choice(liste_user)
     i = liste_user.index(user)
-    winner = None
     if game_choice == "nime":
-       game_nime(liste_user, i , winner, user)
+       game_nime(liste_user, i ,  user)
     else:
+        game_variation(liste_user, i , user)
 
 
-
-def game_nime(liste_user : list[str], i: int,  winner : None|str ,user: str) -> None:
-    """fonction permettant de créé le jeu"""
+def game_nime(liste_user : list[str], i: int,user: str) -> None:
+    """fonction permettant de créé le jeu de nime"""
     matches = " "*21
     while len(matches) > 0:
-        if user != "\n":
-            print(f"{user} , c'est à vous de jouer")
-        else:
-            print("Ordinateur, c'est à vous de jouer")
         print(f"il reste {len(matches)} allumettes")
         if user != "\n":
+            print(f"{user} , c'est à vous de jouer")
             number_matches = input_number_matches_user()
         else:
+            print("Ordinateur, c'est à vous de jouer")
             number_matches = choice_computer(len(matches))
         if len(matches) >= number_matches:
             matches = matches[number_matches:]
             i +=1
         user = liste_user[i % 2]
-    winner = liste_user[i  % 2]
+    winner(liste_user[i  % 2])
+
+
+def game_variation(liste_user : list[str], i: int ,user: str) -> None:
+    """fonction permettant de créé le jeu de Marienbad"""
+    list_matches = [" ", " " * 3, " " * 5, " " * 7]
+    while any([len(i) >0 for i in list_matches]):
+        for i in range(1,5):
+            print(f" le tas numéro  {i} a {len(list_matches[i - 1])}")
+        if user != "\n":
+            print(f"{user} , c'est à vous de jouer")
+            heap_matches = 
+            number_matches = input_number_matches_user()
+        else:
+            print("Ordinateur, c'est à vous de jouer")
+            heap_matches = 
+            number_matches = choice_computer(len(list_matches[heap_matches]))
+        if len(list_matches[heap_matches]) >= number_matches:
+            list_matches[heap_matches] = list_matches[heap_matches][number_matches:]
+            i +=1
+        user = liste_user[i % 2]
+    winner(liste_user[i  % 2])
+
+
+def winner(winner:str) -> None:
     if winner == "\n":
         winner = "Ordinateur"
     print(f"{winner} est le grand vainqueur.")
