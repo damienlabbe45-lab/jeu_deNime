@@ -36,18 +36,28 @@ def game():
     for _ in range(number_user):
         liste_user.append(input_name_user())
     matches = " "*21
+    if number_user == 1:
+        liste_user.append("\n")
     user = choice(liste_user)
     i = 0
     winner = None
     while len(matches) > 0:
-        print(f"{user} , c'est à vous de jouer")
+        if user != "\n":
+            print(f"{user} , c'est à vous de jouer")
+        else:
+            print("Ordinateur, c'est à vous de jouer")
         print(f"il reste {len(matches)} allumettes")
-        number_matches = input_number_matches_user()
+        if user != "\n":
+            number_matches = input_number_matches_user()
+        else:
+            
         if len(matches) >= number_matches:
             allumette = allumette[number_matches:]
             i +=1
         user = liste_user[i % 2]
     winner = liste_user[i  % 2]
+    if winner == "\n":
+        winner = "Ordinateur"
     print(f"{winner} est le grand vainqueur.")
     
 
