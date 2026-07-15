@@ -29,6 +29,16 @@ def input_number_user() -> int:
             number = None
     return number
 
+
+def choice_computer(number_matches: int) -> int:
+    """choix de l'ordinateur"""
+    if number_matches % 5 != 1:
+        number = 5 - number_matches % 5
+    else:
+        number = choice(list(range(1,5)))
+    return number
+
+
 def game():
     """fonction permettant de créé le jeu"""
     number_user = input_number_user()
@@ -50,7 +60,7 @@ def game():
         if user != "\n":
             number_matches = input_number_matches_user()
         else:
-            
+            number_matches = choice_computer(len(matches))
         if len(matches) >= number_matches:
             allumette = allumette[number_matches:]
             i +=1
