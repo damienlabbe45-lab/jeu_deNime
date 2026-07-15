@@ -35,7 +35,7 @@ def choice_computer(number_matches: int) -> int:
     if number_matches % 5 != 1:
         number = 5 - number_matches % 5
     else:
-        number = choice(list(range(1,5)))
+        number = choice(list(range(1, min(5, number_matches))))
     return number
 
 
@@ -62,7 +62,7 @@ def game():
         else:
             number_matches = choice_computer(len(matches))
         if len(matches) >= number_matches:
-            allumette = allumette[number_matches:]
+            matches = matches[number_matches:]
             i +=1
         user = liste_user[i % 2]
     winner = liste_user[i  % 2]
