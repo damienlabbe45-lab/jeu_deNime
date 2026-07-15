@@ -1,3 +1,6 @@
+from secrets import choice
+
+
 def input_name_user() -> str:
     """fonction servant à demander à l'utilisateur de mettre un nom"""
     return input("entrez votre nom")
@@ -22,7 +25,7 @@ def game():
     for _ in range(number_user):
         liste_user.append(input_name_user())
     allumette = " "*21
-    user = liste_user[0]
+    user = choice(liste_user)
     i = 0
     winner = None
     while len(allumette) > 0:
