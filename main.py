@@ -51,6 +51,7 @@ def choice_game_user() -> str:
 
 
 def preparation() -> None:
+    """prépare les variables ainsi que les configurations si c'est pour jouer contre l'ordi ou pas"""
     game_choice = choice_game_user()
     number_user = input_number_user()
     liste_user = []
