@@ -140,7 +140,7 @@ def winner(winner:str) -> None:
 def main() -> None :
    "fonction principale si on éxécute le code"
    game_setup()
-   print("Merci d'avoir jouer")
+   print("Merci d'avoir joué")
 
 
 if __name__ == '__main__':
