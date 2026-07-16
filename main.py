@@ -46,7 +46,7 @@ def choice_computer_matches(number_matches: int) -> int:
     """choix de l'ordinateur"""
     if number_matches % 5 != 1 and number_matches > 5:
         number = 5 - number_matches % 5 
-    elif 5 <= number_matches < 1:
+    elif 1 < number_matches <= 5:
         number = number_matches - 1
     else:
         number = choice(list(range(1, min(5, number_matches + 1))))
