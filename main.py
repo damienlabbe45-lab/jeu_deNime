@@ -46,7 +46,6 @@ def choice_game_user() -> str:
         game = input("Veuillez indiquer le jeu (nime ou Marienbad\n")
         if game != "nime" or game !="Marienbad" :
             game = None
-            
     return game
 
 
