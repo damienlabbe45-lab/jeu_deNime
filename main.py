@@ -42,7 +42,7 @@ def input_number_user() -> int:
     return number
 
 
-def choice_computer(number_matches: int) -> int:
+def choice_computer_matches(number_matches: int) -> int:
     """choix de l'ordinateur"""
     if number_matches % 5 != 1:
         number = 5 - number_matches % 5
@@ -78,6 +78,9 @@ def game_setup() -> None:
         game_variation(liste_user, i , user)
 
 
+def 
+
+
 def game_nime(liste_user : list[str], i: int,user: str) -> None:
     """fonction permettant de créé le jeu de nime"""
     matches = " "*21
@@ -88,7 +91,7 @@ def game_nime(liste_user : list[str], i: int,user: str) -> None:
             number_matches = input_number_matches_user()
         else:
             print("Ordinateur, c'est à vous de jouer")
-            number_matches = choice_computer(len(matches))
+            number_matches = choice_computer_matches(len(matches))
         if len(matches) >= number_matches:
             matches = matches[number_matches:]
             i +=1
@@ -109,7 +112,7 @@ def game_variation(liste_user : list[str], i: int ,user: str) -> None:
         else:
             print("Ordinateur, c'est à vous de jouer")
             heap_matches = 
-            number_matches = choice_computer(len(list_matches[heap_matches]))
+            number_matches = choice_computer_matches(len(list_matches[heap_matches]))
         if len(list_matches[heap_matches]) >= number_matches:
             list_matches[heap_matches] = list_matches[heap_matches][number_matches:]
             i +=1
