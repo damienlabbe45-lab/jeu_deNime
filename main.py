@@ -6,6 +6,18 @@ def input_name_user() -> str:
     return input("entrez votre nom")
 
 
+def input_numberheapmatches_user() -> int:
+    """demander à l'utilisateur de dire quel tas d'allumette il va utiliser"""
+    number = None
+    while number is None:
+        number = input("Veuillez indiquer le tas que vous allez prendre entre 1 et 4\n")
+        if number == "1" or number == "2" or number == "3" or number == "4":
+            number =int(number) - 1
+        else:
+            number = None
+    return number
+
+
 def input_number_matches_user() -> int:
     """demander à l'utilisateur de dire combien d'allumette il enlève"""
     number = None
@@ -92,7 +104,7 @@ def game_variation(liste_user : list[str], i: int ,user: str) -> None:
             print(f" le tas numéro  {i} a {len(list_matches[i - 1])}")
         if user != "\n":
             print(f"{user} , c'est à vous de jouer")
-            heap_matches = 
+            heap_matches = input_numberheapmatches_user()
             number_matches = input_number_matches_user()
         else:
             print("Ordinateur, c'est à vous de jouer")
