@@ -79,6 +79,7 @@ def game_setup() -> None:
 
 
 def choice_computer_heap_matches(list_heap_matches:list[str]) -> int :
+    """fonction permettant à l'ordinateur de choisir le tas d'allumette"""
     heap_matches = [heap for heap in list_heap_matches if len(heap)> 1]
     if len(heap_matches) > 1:
         heap = list_heap_matches.index(choice(heap_matches))
