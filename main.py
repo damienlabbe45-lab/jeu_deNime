@@ -112,8 +112,8 @@ def game_variation(liste_user : list[str], i: int ,user: str) -> None:
     """fonction permettant de créé le jeu de Marienbad"""
     list_matches = [" ", " " * 3, " " * 5, " " * 7]
     while any([len(i) >0 for i in list_matches]):
-        for i in range(1,5):
-            print(f" le tas numéro  {i} a {len(list_matches[i - 1])}")
+        for heap in range(1,5):
+            print(f" le tas numéro  {heap} a {len(list_matches[heap - 1])}")
         if user != "\n":
             print(f"{user} , c'est à vous de jouer")
             heap_matches = input_numberheapmatches_user()
