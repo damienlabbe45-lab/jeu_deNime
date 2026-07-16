@@ -11,7 +11,7 @@ def input_numberheapmatches_user() -> int:
     number = None
     while number is None:
         number = input("Veuillez indiquer le tas que vous allez prendre entre 1 et 4\n")
-        if number == "1" or number == "2" or number == "3" or number == "4":
+        if number in ["1", "2", "3", "4"]:
             number =int(number) - 1
         else:
             number = None
@@ -23,7 +23,7 @@ def input_number_matches_user() -> int:
     number = None
     while number is None:
         number = input("Veuillez indiquer le nombre d'allumette que vous prenez entre 1 et 4\n")
-        if number == "1" or number == "2" or number == "3" or number == "4":
+        if number in ["1", "2", "3", "4"]:
             number =int(number)
         else:
             number = None
@@ -35,7 +35,7 @@ def input_number_user() -> int:
     number = None
     while number is None:
         number = input("Veuillez indiquer le nombre de joueurs (1 ou 2)\n")
-        if number == "1" or number == "2":
+        if number in ["1", "2"]:
             number =int(number)
         else:
             number = None
@@ -51,6 +51,18 @@ def choice_computer_matches(number_matches: int) -> int:
     else:
         number = choice(list(range(1, min(5, number_matches + 1))))
     return number
+
+
+def choice_computer_heap_matches(list_heap_matches:list[str]) -> int :
+    """fonction permettant à l'ordinateur de choisir le tas d'allumette"""
+    heap_matches = [heap for heap in list_heap_matches if len(heap)> 1]
+    if len(heap_matches) > 1:
+        heap = list_heap_matches.index(choice(heap_matches))
+    elif len(heap_matches) == 1:
+        heap = list_heap_matches.index(heap_matches[0])
+    else:
+        heap = 0
+    return heap
 
 
 def choice_game_user() -> str:
@@ -78,18 +90,6 @@ def game_setup() -> None:
        game_nime(liste_user, i ,  user)
     else:
         game_variation(liste_user, i , user)
-
-
-def choice_computer_heap_matches(list_heap_matches:list[str]) -> int :
-    """fonction permettant à l'ordinateur de choisir le tas d'allumette"""
-    heap_matches = [heap for heap in list_heap_matches if len(heap)> 1]
-    if len(heap_matches) > 1:
-        heap = list_heap_matches.index(choice(heap_matches))
-    elif len(heap_matches) == 1:
-        heap = list_heap_matches.index(heap_matches[0])
-    else:
-        heap = 0
-    return heap
 
 
 def game_nime(liste_user : list[str], i: int,user: str) -> None:
