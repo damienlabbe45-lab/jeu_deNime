@@ -78,7 +78,15 @@ def game_setup() -> None:
         game_variation(liste_user, i , user)
 
 
-def 
+def choice_computer_heap_matches(list_heap_matches:list[str]) -> int :
+    heap_matches = [heap for heap in list_heap_matches if len(heap)> 1]
+    if len(heap_matches) > 1:
+        heap = list_heap_matches.index(choice(heap_matches))
+    elif len(heap_matches) == 1:
+        heap = list_heap_matches.index(heap_matches[0])
+    else:
+        heap = 0
+    return heap
 
 
 def game_nime(liste_user : list[str], i: int,user: str) -> None:
@@ -111,7 +119,7 @@ def game_variation(liste_user : list[str], i: int ,user: str) -> None:
             number_matches = input_number_matches_user()
         else:
             print("Ordinateur, c'est à vous de jouer")
-            heap_matches = 
+            heap_matches = choice_computer_heap_matches
             number_matches = choice_computer_matches(len(list_matches[heap_matches]))
         if len(list_matches[heap_matches]) >= number_matches:
             list_matches[heap_matches] = list_matches[heap_matches][number_matches:]
